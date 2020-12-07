@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mapsFragment">
+
+
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.yk.tripinfo.home.MapsFragment"
+        android:label="TripInfo"
+        tools:layout="@layout/fragment_maps" >
+    </fragment>
+    <fragment
+        android:id="@+id/tripDetails"
+        android:name="com.yk.tripinfo.trips.TripLocationListFragment"
+        android:label="trip_details_fragment"
+        tools:layout="@layout/trip_locations_fragment" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.yk.tripinfo.about.AboutFragment"
+        android:label="about_fragment"
+        tools:layout="@layout/about_fragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.yk.tripinfo.settings.SettingsFragment"
+        android:label="settings_fragment"
+        tools:layout="@layout/settings_fragment" />
+    <dialog
+        android:id="@+id/addNewTripFragment"
+        android:name="com.yk.tripinfo.trips.AddNewTripFragment"
+        android:label="AddNewTripFragment" />
+    <fragment
+        android:id="@+id/tripsListFragment"
+        android:name="com.yk.tripinfo.trips.TripsListFragment"
+        android:label="TripsListFragment" >
+        <action
+            android:id="@+id/toTripMap"
+            app:destination="@id/tripMapFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/tripMapFragment"
+        android:name="com.yk.tripinfo.trips.TripMapFragment"
+        android:label="fragment_trip_map"
+        tools:layout="@layout/fragment_trip_map" >
+        <argument
+            android:name="trip_id"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
+
+</navigation>
